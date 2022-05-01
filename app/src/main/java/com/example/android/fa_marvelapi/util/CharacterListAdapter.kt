@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android.fa_marvelapi.R
+import com.example.android.fa_marvelapi.UI.Character.CharacterActivity
 import com.example.android.fa_marvelapi.domain.model.Character
 import java.util.ArrayList
 

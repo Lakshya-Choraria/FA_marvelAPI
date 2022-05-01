@@ -1,22 +1,29 @@
 package com.example.android.fa_marvelapi.UI.Character
 
+import android.content.Context
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.example.android.fa_marvelapi.R
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.example.android.fa_marvelapi.MarvelApplication
+import com.example.android.fa_marvelapi.MarvelApplication_GeneratedInjector
 import com.example.android.fa_marvelapi.databinding.ActivityCharacterBinding
-import com.example.android.fa_marvelapi.UI.CharacterList.CharViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CharacterActivity : AppCompatActivity() {
-    private val viewModelCharacter : CharViewModel by viewModels()
+    private val viewModelCharacter : CharacterViewModel by viewModels()
+    private val context = MarvelApplication.instance
     private var id : Int = 0
     private lateinit var binding : ActivityCharacterBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,8 +46,9 @@ class CharacterActivity : AppCompatActivity() {
                         it.characterDetail.isNotEmpty()->{
                             binding.progressBar.visibility = View.GONE
                             it.characterDetail.map { character ->
-                                val url = "${character.thumbnail}/landscape_medium.${character.thumbnailExt}"
-                                Picasso.get().load(url).placeholder(R.drawable.image5).into(binding.appCompatImageView)
+                                val url = "${character.thumbnail}/landscape_medium.${character.thumbnailExit}".replace("http", "https")
+                                Glide.with(context).load(url).into(binding.appCompatImageView)
+                                //Picasso.get().load(url).into(binding.appCompatImageView)
                                 binding.textView.text = character.name
                                 binding.textView2.text = character.description
                                 Log.d("description",character.description)

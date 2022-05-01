@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FA_marvelAPI">
         <activity
-            android:name=".MainActivity"
+            android:name=".UI.Character.CharacterActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".UI.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

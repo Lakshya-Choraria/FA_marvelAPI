@@ -2,35 +2,33 @@ package com.example.android.fa_marvelapi.UI.Character
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.android.fa_marvelapi.domain.model.Character
-import com.example.android.fa_marvelapi.domain.use_cases.CharacterUseCases
 import com.example.android.fa_marvelapi.domain.use_cases.IndCharUseCase
+import com.example.android.fa_marvelapi.util.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class CharacterViewModel @Inject constructor(
-    private val characterUseCase: CharacterUseCases
+    private val characterUseCase: IndCharUseCase
 ) : ViewModel(){
 
     private val characterValue = MutableStateFlow(CharacterState())
     val _characterValue : StateFlow<CharacterState> = characterValue
 
     fun getCharacterByIdValue(id:String)=viewModelScope.launch{
-        IndCharUseCase(id).collect {
+        characterUseCase(id).collect {
             when(it){
-                is State.Success-> {
+                is Response.Success-> {
                     characterValue.value = CharacterState(
                         characterDetail = it.data?: emptyList()
                     )
                 }
-                is State.Loading->{
+                is Response.Loading->{
                     characterValue.value = CharacterState(isLoading = true)
                 }
-                is State.Error->{
+                is Response.Error->{
                     characterValue.value = CharacterState(error = it.message?:"An Unexpected Error")
                 }
             }

@@ -3,8 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/activity_character.xml" value="0.3424574209245742" />
-        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/activity_main.xml" value="0.1390625" />
+        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/activity_character.xml" value="0.1" />
+        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/character_card.xml" value="0.29322916666666665" />
       </map>
     </option>

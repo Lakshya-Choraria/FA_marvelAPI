@@ -1,4 +1,4 @@
-package com.example.android.fa_marvelapi
+package com.example.android.fa_marvelapi.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
