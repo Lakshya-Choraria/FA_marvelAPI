@@ -1,9 +1,13 @@
 package com.example.android.fa_marvelapi.UI
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ShareActionProvider
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
@@ -22,18 +26,26 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    companion object {
+        lateinit var counter: TextView
+    }
     private lateinit var binding : ActivityMainBinding
     var flag = 3
     var paginatedValue = 0
     private  lateinit var recyclerView : RecyclerView
     private lateinit var adapter : CharacterListAdapter
     private lateinit var layoutManager : GridLayoutManager
+    private lateinit var sharedPreferences: SharedPreferences
     private val viewModel: CharViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         recyclerView = binding.CharacterRecyclerView
+        counter = binding.counterView
+        sharedPreferences = getSharedPreferences("counter", Context.MODE_PRIVATE)
+        var c = sharedPreferences.getInt("count",0)
+        counter.text = "Count: $c"
         layoutManager =GridLayoutManager(this, 2)
         recyclerViewCharacter()
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
