@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class CounterViewModel(application: Application): AndroidViewModel(application) {
 
-    private val readallData: LiveData<List<Entity>>
+    val readallData: LiveData<List<Entity>>
     private val repository: CounterDaoImpl
     init{
         val counterDAO = counterDatabase.getDatabase((application)).counterDao()
@@ -20,9 +20,9 @@ class CounterViewModel(application: Application): AndroidViewModel(application) 
         readallData = repository.readlAllData
     }
 
-    fun incrementCounter(entity: Entity){
+    fun addCounter(entity: Entity){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.incrementCounter(entity)
+            repository.addCounter(entity)
         }
     }
 }

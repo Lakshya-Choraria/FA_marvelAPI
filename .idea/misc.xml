@@ -3,9 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.2215" />
+        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/drawable/ic_details.xml" value="0.2215" />
         <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/activity_character.xml" value="0.1" />
-        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/activity_detail.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/character_card.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/counter_row.xml" value="0.25" />
+        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/fragment_add.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/fragment_increment.xml" value="0.26992753623188404" />
+        <entry key="..\:/Users/laksh/AndroidStudioProjects/FA_marvelAPI/app/src/main/res/layout/fragment_list.xml" value="0.29322916666666665" />
       </map>
     </option>
   </component>

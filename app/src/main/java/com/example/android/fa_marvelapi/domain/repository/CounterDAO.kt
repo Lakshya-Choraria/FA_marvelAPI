@@ -10,8 +10,10 @@ import com.example.android.fa_marvelapi.domain.model.Entity
 @Dao
 interface CounterDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun incrementCounter(entity: Entity)
+    suspend fun addCounter(entity: Entity)
 
-    @Query("SELECT * FROM click_counter ORDER BY id ASC")
+    //suspend fun incrementCounter(entity: Entity)
+
+    @Query("SELECT * FROM user_table ORDER BY id ASC")
     fun readAllData(): LiveData<List<Entity>>
 }

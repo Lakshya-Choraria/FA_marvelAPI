@@ -9,18 +9,5 @@
         android:id="@+id/listFragment"
         android:name="com.example.android.fa_marvelapi.Fragment.list.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" >
-        <action
-            android:id="@+id/action_listFragment_to_incrementFragment"
-            app:destination="@id/incrementFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/incrementFragment"
-        android:name="com.example.android.fa_marvelapi.Fragment.increment.incrementFragment"
-        android:label="fragment_increment"
-        tools:layout="@layout/fragment_increment" >
-        <action
-            android:id="@+id/action_incrementFragment_to_listFragment"
-            app:destination="@id/listFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_list" />
 </navigation>
