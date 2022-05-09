@@ -17,7 +17,7 @@ class DetailListAdapter() : RecyclerView.Adapter<DetailListAdapter.MyViewHolder>
         val dCharName : TextView = view.findViewById(R.id.detailCharName)
         val dCounter : TextView = view.findViewById(R.id.detailCounter)
     }
-    //class MyViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){}
+    //class MyViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){}fgdfg
     private var userList = emptyList<Entity>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(LayoutInflater.from(parent.context).inflate((R.layout.counter_row),parent,false))

@@ -8,6 +8,7 @@ import com.example.android.fa_marvelapi.data.repository.CounterDaoImpl
 import com.example.android.fa_marvelapi.domain.model.Entity
 import com.example.android.fa_marvelapi.domain.model.counterDatabase
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class CounterViewModel(application: Application): AndroidViewModel(application) {
@@ -17,12 +18,21 @@ class CounterViewModel(application: Application): AndroidViewModel(application) 
     init{
         val counterDAO = counterDatabase.getDatabase((application)).counterDao()
         repository = CounterDaoImpl(counterDAO)
-        readallData = repository.readlAllData
+        readallData = repository.readAllData
     }
 
     fun addCounter(entity: Entity){
         viewModelScope.launch(Dispatchers.IO) {
             repository.addCounter(entity)
         }
+    }
+    fun incrementCounter(entity: Entity){
+        viewModelScope.launch(Dispatchers.IO){
+            val newEntity = Entity(entity.id,entity.charactername,entity.counter+1)
+            repository.incrementCounter(newEntity)
+        }
+    }
+    fun searchDatabase(searchQuery: String): Entity {
+        return repository.searchDatabase(searchQuery)
     }
 }

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android.fa_marvelapi.R
@@ -37,10 +38,17 @@ class CharacterListAdapter(private val context:Context,var itemlist:ArrayList<Ch
         Glide.with(context).load(imageURL).into(holder.thumbnail)
         holder.cardCharacter.setOnClickListener{
             insertDatatoDatabase(holder.characterName.text.toString())
+            updateDatatoDatabase(holder.characterName.text.toString())
             val intent = Intent(context, CharacterActivity::class.java)
             intent.putExtra("id",list.id)
             context.startActivity(intent)
         }
+    }
+
+    private fun updateDatatoDatabase(charName: String) {
+        mCounterViewModel = CounterViewModel(context.applicationContext as Application)
+        val entry = mCounterViewModel.searchDatabase("%$charName%")
+        mCounterViewModel.incrementCounter(entry)
     }
 
     private fun insertDatatoDatabase(charName:String) {
@@ -48,7 +56,6 @@ class CharacterListAdapter(private val context:Context,var itemlist:ArrayList<Ch
         val entry = Entity(0,charName,0)
         mCounterViewModel.addCounter(entry)
     }
-
     override fun getItemCount(): Int {
         return itemlist.size
     }
